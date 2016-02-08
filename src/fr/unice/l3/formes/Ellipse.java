@@ -32,9 +32,7 @@ public class Ellipse extends AFormeGeometrique {
 	@Override
 	public void paint(Graphics g) {
 		super.paintComponent(g);
-		
 		Graphics2D g2d = (Graphics2D) g;
-		
 		g2d.setStroke(new BasicStroke(this.trait));
 		g2d.draw(new Ellipse2D.Double(this.ancrage.x, this.ancrage.y, this.largeur, this.hauteur));
 			

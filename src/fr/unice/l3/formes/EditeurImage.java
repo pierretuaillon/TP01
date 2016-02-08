@@ -66,7 +66,7 @@ public class EditeurImage extends JFrame {
 		r2.setBounds(r2.getX(), r2.getY(), r2.getLargeur()*10, r2.getHauteur()*10);
 		e1.setBounds(e1.getX(), e1.getY(), e1.getLargeur()*10, e1.getHauteur()*10);
 		e2.setBounds(e2.getX(), e2.getY(), e2.getLargeur()*10, e2.getHauteur()*10);
-		
+
 		//Méthode pour dessiner dans le panel
 		pan.repaint();
 		frame.setContentPane(pan);

@@ -27,13 +27,9 @@ public class Rectangle extends AFormeGeometrique {
 	@Override
 	public void paint(Graphics g) {
 		super.paintComponent(g);
-
 		Graphics2D g2d = (Graphics2D) g;
-		
 		g2d.setStroke(new BasicStroke(this.trait));
 		g2d.setBackground(getBackground());
 		g2d.drawRect(this.ancrage.x, this.ancrage.y, this.hauteur, this.largeur);
-
-
 	}
 }

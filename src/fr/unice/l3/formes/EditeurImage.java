@@ -1,12 +1,15 @@
 package fr.unice.l3.formes;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 import fr.unice.l3.formes.*;
 import fr.unice.l3.formes.Point;
 import fr.unice.l3.formes.Rectangle;
 
-public class EditeurImage extends JFrame {
+public class EditeurImage extends JFrame implements ActionListener{
 
 	public EditeurImage() {
 		JFrame frame = new JFrame();
@@ -47,7 +50,7 @@ public class EditeurImage extends JFrame {
 		r1.setTrait(15);
 		r2.setTrait(6);
 		
-		//IOn creer 2 ellipses
+		//On creer 2 ellipses
 		Ellipse e1 = new Ellipse(new Point(150, 150), 20, 50);
 		Ellipse e2 = new Ellipse(new Point(25, 250), 60, 60);
 		
@@ -67,15 +70,57 @@ public class EditeurImage extends JFrame {
 		e1.setBounds(e1.getX(), e1.getY(), e1.getLargeur()*10, e1.getHauteur()*10);
 		e2.setBounds(e2.getX(), e2.getY(), e2.getLargeur()*10, e2.getHauteur()*10);
 
+		
+		
+		JPanel pan2 = new JPanel();
+		
+		JButton bAucun = new JButton("Aucun");
+		JButton bRectangle = new JButton("Rectangle");
+		JButton bEllipse = new JButton("Ellipse");
+		bAucun.setMaximumSize(new Dimension(100, 30));
+		bAucun.setMinimumSize(new Dimension(100, 30));
+		
+		bRectangle.setMaximumSize(new Dimension(100, 30));
+		bRectangle.setMinimumSize(new Dimension(100, 30));
+		
+		bEllipse.setMaximumSize(new Dimension(100, 30));
+		bEllipse.setMinimumSize(new Dimension(100, 30));
+		
+		pan2.add(bAucun);
+		pan2.add(bRectangle);
+		pan2.add(bEllipse);
+		pan2.setLayout(new BoxLayout(pan2, BoxLayout.PAGE_AXIS));
+		
+		bAucun.addActionListener(this);
+		bRectangle.addActionListener(this);
+		bEllipse.addActionListener(this);
+		
+		Box boxVide = Box.createVerticalBox();
+		boxVide.add(Box.createVerticalStrut(frame.getHeight()));
+		pan2.add(boxVide);
+		
+		frame.add(pan2, BorderLayout.WEST);
+		pan2.setBackground(Color.red);
+		
+		
+		
 		//Méthode pour dessiner dans le panel
 		pan.repaint();
-		frame.setContentPane(pan);
-		//pan.setVisible(true);
+		
+		//frame.setContentPane(pan);
+		
 	}
 	
 	public static void main(String[] args) {
 		
 		new EditeurImage();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton button = (JButton)e.getSource();
+		System.out.println(button.getText());
+		
 	}
 
 }
